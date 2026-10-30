@@ -1,4 +1,4 @@
-{
+ {
   "expo": {
     "name": "civora-mobile",
     "slug": "civora-mobile",
@@ -8,6 +8,7 @@
     "scheme": "civoramobile",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "supportsTablet": false,
       "icon": "./assets/expo.icon"
     },
     "android": {
