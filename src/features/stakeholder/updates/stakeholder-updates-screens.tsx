@@ -1,5 +1,4 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React from "react";
 import { Pressable, Text, View } from "react-native";
 
 import { WorkspaceShell } from "@/components/layout/workspace-shell";
@@ -36,10 +35,10 @@ export function StakeholderUpdatesScreen() {
 
   const releasedRisks = hasPermission(user, "risks:read_released")
     ? CONTRACT_STAKEHOLDER_RISKS.filter(
-        (r) =>
-          isAuthorizedForProject(user, r.projectId) &&
-          r.releasedToStakeholders
-      )
+      (r) =>
+        isAuthorizedForProject(user, r.projectId) &&
+        r.releasedToStakeholders
+    )
     : [];
 
   return (

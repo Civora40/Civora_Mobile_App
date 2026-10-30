@@ -206,67 +206,67 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const previewUser: AuthenticatedUser =
         role === "engineer"
           ? {
-              id: "usr_eng_preview_01",
-              email: "engineer@civora.internal",
-              fullName: "Marcus Vance, PE",
+            id: "usr_eng_preview_01",
+            email: "engineer@civora.internal",
+            fullName: "Marcus Vance, PE",
+            organizationName: "Civora Infrastructure Ltd",
+            role: "engineer",
+            permissions: [
+              "workspace:engineer",
+              "projects:read",
+              "submissions:create",
+              "submissions:read",
+              "uploads:create",
+              "reports:draft",
+              "reports:submit_review",
+              "ai_analysis:request",
+              "ai_analysis:accept_suggestion",
+              "tasks:update",
+            ],
+            assignedProjectIds: ["proj_horizon_tower", "proj_metro_bridge"],
+          }
+          : role === "stakeholder"
+            ? {
+              id: "usr_stk_preview_01",
+              email: "stakeholder@civora.internal",
+              fullName: "Elena Rostova",
+              organizationName: "Civora Infrastructure Ltd (Oversight)",
+              role: "stakeholder",
+              permissions: [
+                "workspace:stakeholder",
+                "projects:read",
+                "reports:read_released",
+                "documents:download_released",
+                "updates:read_published",
+                "risks:read_released",
+              ],
+              assignedProjectIds: ["proj_horizon_tower"],
+            }
+            : {
+              id: "usr_dual_preview_01",
+              email: "admin@civora.internal",
+              fullName: "Sarah Chen (Lead Systems Architect)",
               organizationName: "Civora Infrastructure Ltd",
               role: "engineer",
               permissions: [
                 "workspace:engineer",
+                "workspace:stakeholder",
                 "projects:read",
                 "submissions:create",
                 "submissions:read",
                 "uploads:create",
                 "reports:draft",
                 "reports:submit_review",
+                "reports:read_released",
                 "ai_analysis:request",
                 "ai_analysis:accept_suggestion",
                 "tasks:update",
+                "documents:download_released",
+                "updates:read_published",
+                "risks:read_released",
               ],
               assignedProjectIds: ["proj_horizon_tower", "proj_metro_bridge"],
-            }
-          : role === "stakeholder"
-            ? {
-                id: "usr_stk_preview_01",
-                email: "stakeholder@civora.internal",
-                fullName: "Elena Rostova",
-                organizationName: "Civora Infrastructure Ltd (Oversight)",
-                role: "stakeholder",
-                permissions: [
-                  "workspace:stakeholder",
-                  "projects:read",
-                  "reports:read_released",
-                  "documents:download_released",
-                  "updates:read_published",
-                  "risks:read_released",
-                ],
-                assignedProjectIds: ["proj_horizon_tower"],
-              }
-            : {
-                id: "usr_dual_preview_01",
-                email: "admin@civora.internal",
-                fullName: "Sarah Chen (Lead Systems Architect)",
-                organizationName: "Civora Infrastructure Ltd",
-                role: "engineer",
-                permissions: [
-                  "workspace:engineer",
-                  "workspace:stakeholder",
-                  "projects:read",
-                  "submissions:create",
-                  "submissions:read",
-                  "uploads:create",
-                  "reports:draft",
-                  "reports:submit_review",
-                  "reports:read_released",
-                  "ai_analysis:request",
-                  "ai_analysis:accept_suggestion",
-                  "tasks:update",
-                  "documents:download_released",
-                  "updates:read_published",
-                  "risks:read_released",
-                ],
-                assignedProjectIds: ["proj_horizon_tower", "proj_metro_bridge"],
-              };
+            };
 
       const resolvedRole: CivoraRole =
         role === "stakeholder" ? "stakeholder" : "engineer";
